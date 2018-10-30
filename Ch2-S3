@@ -62,4 +62,128 @@ aws s3api list-object-versions --bucket utkal-aws-certi --prefix sampletext1.txt
         }
     ]
   }
-  
+ 
+# Exercise 2.4
+# Delete object from bucket with version enabled and restore
+utkalnayak$ aws s3api delete-object --bucket utkal-aws-certi --key sampletext1.txt
+
+# Output
+    {
+        "DeleteMarker": true,
+        "VersionId": "cGtui5h_f1EuMfcL5fWEG6nCSoo55x6y"
+    }
+
+# Check status of the file version
+aws s3api list-object-versions --bucket utkal-aws-certi --prefix sampletext1.txt
+
+# Output
+    {
+    "Versions": [
+        {
+            "ETag": "\"51be4b005a7a72bfad69f2e0c39587f8\"",
+            "Size": 15,
+            "StorageClass": "REDUCED_REDUNDANCY",
+            "Key": "sampletext1.txt",
+            "VersionId": "pjQKIC8y8_dEd8ExLFR3Jmg.RYCYBWX2",
+            "IsLatest": false,
+            "LastModified": "2018-10-29T20:11:52.000Z",
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            }
+        },
+        {
+            "ETag": "\"b954b7ef3a92a2af91f9dd765073f205\"",
+            "Size": 16,
+            "StorageClass": "REDUCED_REDUNDANCY",
+            "Key": "sampletext1.txt",
+            "VersionId": "O6CSPhv0gE3MUBOWrbw_fNp0oq2L66XV",
+            "IsLatest": false,
+            "LastModified": "2018-10-29T20:10:43.000Z",
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            }
+        }
+    ],
+    "DeleteMarkers": [
+        {
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            },
+            "Key": "sampletext1.txt",
+            "VersionId": "cGtui5h_f1EuMfcL5fWEG6nCSoo55x6y",
+            "IsLatest": true,
+            "LastModified": "2018-10-30T00:47:56.000Z"
+        }
+    ]
+  }
+
+# Upload the same file again
+aws s3 cp sampletext1.txt s3://utkal-aws-certi/ --storage-class REDUCED_REDUNDANCY --acl public-read
+
+# Check status of the file version
+aws s3api list-object-versions --bucket utkal-aws-certi --prefix sampletext1.txt
+
+# Output
+    {
+    "Versions": [
+        {
+            "ETag": "\"51be4b005a7a72bfad69f2e0c39587f8\"",
+            "Size": 15,
+            "StorageClass": "REDUCED_REDUNDANCY",
+            "Key": "sampletext1.txt",
+            "VersionId": "9jY11iWR63Fblv1p_hi.7WZRibv9f5JQ",
+            "IsLatest": true,
+            "LastModified": "2018-10-30T01:05:24.000Z",
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            }
+        },
+        {
+            "ETag": "\"51be4b005a7a72bfad69f2e0c39587f8\"",
+            "Size": 15,
+            "StorageClass": "REDUCED_REDUNDANCY",
+            "Key": "sampletext1.txt",
+            "VersionId": "pjQKIC8y8_dEd8ExLFR3Jmg.RYCYBWX2",
+            "IsLatest": false,
+            "LastModified": "2018-10-29T20:11:52.000Z",
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            }
+        },
+        {
+            "ETag": "\"b954b7ef3a92a2af91f9dd765073f205\"",
+            "Size": 16,
+            "StorageClass": "REDUCED_REDUNDANCY",
+            "Key": "sampletext1.txt",
+            "VersionId": "O6CSPhv0gE3MUBOWrbw_fNp0oq2L66XV",
+            "IsLatest": false,
+            "LastModified": "2018-10-29T20:10:43.000Z",
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            }
+        }
+    ],
+    "DeleteMarkers": [
+        {
+            "Owner": {
+                "DisplayName": "unayak",
+                "ID": "da8a300f609223c2ae2ae382a9fe0d9ad35b625d1aafbd8b42159a42818218b2"
+            },
+            "Key": "sampletext1.txt",
+            "VersionId": "cGtui5h_f1EuMfcL5fWEG6nCSoo55x6y",
+            "IsLatest": false,
+            "LastModified": "2018-10-30T00:47:56.000Z"
+        }
+    ]
+}
+
+
+
+
+
