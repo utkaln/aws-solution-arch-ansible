@@ -184,6 +184,18 @@ aws s3api list-object-versions --bucket utkal-aws-certi --prefix sampletext1.txt
 }
 
 
+# Exercise 2.5
+# Check life cycle config
+aws s3api get-bucket-lifecycle-configuration --bucket utkal-aws-certi
+
+# Output : An error occurred (NoSuchLifecycleConfiguration) when calling the GetBucketLifecycleConfiguration operation: The lifecycle configuration does not exist
+
+
+aws s3api put-bucket-lifecycle-configuration --bucket utkal-aws-certi --lifecycle-configuration  file://lifecycle.json
+# Output : [BLANK]
+
+
+
 
 
 
