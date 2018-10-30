@@ -194,6 +194,18 @@ aws s3api get-bucket-lifecycle-configuration --bucket utkal-aws-certi
 aws s3api put-bucket-lifecycle-configuration --bucket utkal-aws-certi --lifecycle-configuration  file://lifecycle.json
 # Output : [BLANK]
 
+# Exercise 2.6
+# Static website hosting
+aws s3api put-bucket-website --bucket utkal-aws-certi --website-configuration file://website.json
+aws s3 cp index.html s3://utkal-aws-certi/ --storage-class REDUCED_REDUNDANCY --acl public-read
+aws s3 cp error.html s3://utkal-aws-certi/ --storage-class REDUCED_REDUNDANCY --acl public-read
+
+aws s3api get-bucket-website --bucket utkal-aws-certi
+
+# Endpoint : http://utkal-aws-certi.s3-website-us-east-1.amazonaws.com
+
+
+
 
 
 
