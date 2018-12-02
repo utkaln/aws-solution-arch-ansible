@@ -25,4 +25,4 @@ aws ec2 authorize-security-group-ingress --group-name Utkal-ec2-sg1-cert-exam-cl
 
 aws ec2 run-instances --image-id ami-09479453c5cde9639 --security-group-ids sg-02270386c0356280f --count 1 --instance-type t2.micro --key-name ec2-learn 
 
-
+![alt text](https://github.com/utkaln/aws-solution-arch-ansible/blob/master/Screen%20Shot%202018-12-01%20at%207.47.19%20PM.png)
