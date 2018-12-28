@@ -1,6 +1,6 @@
 Tried modifying the instance type from T2.micro to T2.medium to see if I need to detach and reattach root volume. Here is the configuration details that shows that EC2 instance is able to automatically attach the previou root volume with all data and AMI persisted.
 
-aws ec2 describe-instances --instance-ids i-0f8bad7652de9087b
+CLI command reference: https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html (instance must be stopped before applying)
 
 aws ec2 describe-instances --instance-ids i-0f8bad7652de9087b
 {
