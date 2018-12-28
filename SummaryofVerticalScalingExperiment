@@ -1,0 +1,132 @@
+Tried modifying the instance type from T2.micro to T2.medium to see if I need to detach and reattach root volume. Here is the configuration details that shows that EC2 instance is able to automatically attach the previou root volume with all data and AMI persisted.
+
+aws ec2 describe-instances --instance-ids i-0f8bad7652de9087b
+
+aws ec2 describe-instances --instance-ids i-0f8bad7652de9087b
+{
+    "Reservations": [
+        {
+            "Groups": [],
+            "Instances": [
+                {
+                    "AmiLaunchIndex": 0,
+                    "ImageId": "ami-0080e4c5bc078760e",
+                    "InstanceId": "i-0f8bad7652de9087b",
+                    "InstanceType": "t2.medium",
+                    "KeyName": "XXXXXXXXX",
+                    "LaunchTime": "2018-12-28T20:04:59.000Z",
+                    "Monitoring": {
+                        "State": "disabled"
+                    },
+                    "Placement": {
+                        "AvailabilityZone": "us-east-1c",
+                        "GroupName": "",
+                        "Tenancy": "default"
+                    },
+                    "PrivateDnsName": "ip-172-31-21-55.ec2.internal",
+                    "PrivateIpAddress": "172.31.21.55",
+                    "ProductCodes": [],
+                    "PublicDnsName": "XXXXXXXXXXXXXX.compute-1.amazonaws.com",
+                    "PublicIpAddress": "XXXXXXXXXXXX",
+                    "State": {
+                        "Code": 16,
+                        "Name": "running"
+                    },
+                    "StateTransitionReason": "",
+                    "SubnetId": "subnet-c92ca392",
+                    "VpcId": "vpc-4516c323",
+                    "Architecture": "x86_64",
+                    "BlockDeviceMappings": [
+                        {
+                            "DeviceName": "/dev/xvda",
+                            "Ebs": {
+                                "AttachTime": "2018-12-28T16:47:37.000Z",
+                                "DeleteOnTermination": true,
+                                "Status": "attached",
+                                "VolumeId": "vol-033bed90b6ab789a0"
+                            }
+                        }
+                    ],
+                    "ClientToken": "",
+                    "EbsOptimized": false,
+                    "EnaSupport": true,
+                    "Hypervisor": "xen",
+                    "NetworkInterfaces": [
+                        {
+                            "Association": {
+                                "IpOwnerId": "amazon",
+                                "PublicDnsName": "XXXXXXXXXXXXX.compute-1.amazonaws.com",
+                                "PublicIp": "XXXXXXXXXXXXXXXX"
+                            },
+                            "Attachment": {
+                                "AttachTime": "2018-12-28T16:47:37.000Z",
+                                "AttachmentId": "eni-attach-03dfa1162ac49ff9f",
+                                "DeleteOnTermination": true,
+                                "DeviceIndex": 0,
+                                "Status": "attached"
+                            },
+                            "Description": "",
+                            "Groups": [
+                                {
+                                    "GroupName": "SG for Vertical Scaling Experiment",
+                                    "GroupId": "sg-0bb8aff24e0965940"
+                                }
+                            ],
+                            "Ipv6Addresses": [],
+                            "MacAddress": "0e:bf:64:40:0a:78",
+                            "NetworkInterfaceId": "eni-0cda202e1473fd217",
+                            "OwnerId": "196215119328",
+                            "PrivateDnsName": "ip-172-31-21-55.ec2.internal",
+                            "PrivateIpAddress": "172.31.21.55",
+                            "PrivateIpAddresses": [
+                                {
+                                    "Association": {
+                                        "IpOwnerId": "amazon",
+                                        "PublicDnsName": "XXXXXXXXXXXX.compute-1.amazonaws.com",
+                                        "PublicIp": "XXXXXXXXXXXXXXX"
+                                    },
+                                    "Primary": true,
+                                    "PrivateDnsName": "ip-172-31-21-55.ec2.internal",
+                                    "PrivateIpAddress": "172.31.21.55"
+                                }
+                            ],
+                            "SourceDestCheck": true,
+                            "Status": "in-use",
+                            "SubnetId": "subnet-c92ca392",
+                            "VpcId": "vpc-4516c323"
+                        }
+                    ],
+                    "RootDeviceName": "/dev/xvda",
+                    "RootDeviceType": "ebs",
+                    "SecurityGroups": [
+                        {
+                            "GroupName": "SG for Vertical Scaling Experiment",
+                            "GroupId": "sg-0bb8aff24e0965940"
+                        }
+                    ],
+                    "SourceDestCheck": true,
+                    "Tags": [
+                        {
+                            "Key": "Email",
+                            "Value": "nayak.utkal@gmail.com"
+                        },
+                        {
+                            "Key": "Name",
+                            "Value": "Default T2 Micro"
+                        }
+                    ],
+                    "VirtualizationType": "hvm",
+                    "CpuOptions": {
+                        "CoreCount": 2,
+                        "ThreadsPerCore": 1
+                    },
+                    "CapacityReservationSpecification": {
+                        "CapacityReservationPreference": "open"
+                    }
+                }
+            ],
+            "OwnerId": "196215119328",
+            "ReservationId": "r-053ffde0d620ec8ae"
+        }
+    ]
+}
