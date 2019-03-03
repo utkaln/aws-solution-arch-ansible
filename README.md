@@ -8,3 +8,5 @@ To quickly check what is the IP you are connected from use the following url: ht
 [S3 Exercise Using CLI](https://github.com/utkaln/aws-solution-arch-ansible/blob/master/Ch2-S3)
 
 [EC2 Launch instance using CLI](https://github.com/utkaln/aws-solution-arch-ansible/blob/master/EC2-Exercise.md)
+
+[RDS Self Learning Notes] (https://github.com/utkaln/aws-solution-arch-ansible/blob/master/readme-rds.md)
