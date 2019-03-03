@@ -1,4 +1,4 @@
-#Connect from mac
+## Connect from mac
 
 export PATH=${PATH}:/usr/local/mysql/bin
 
