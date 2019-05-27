@@ -11,4 +11,6 @@ To quickly check what is the IP you are connected from use the following url: ht
 
 [RDS Self Learning Notes](https://github.com/utkaln/aws-solution-arch-ansible/blob/master/readme-rds.md)
 
-[Useful script to create and manage VPC] (https://github.com/kovarus/aws-cli-create-vpcs/blob/master/aws-cli-create-vpc.sh)
+[Useful script to create and manage VPC](https://github.com/kovarus/aws-cli-create-vpcs/blob/master/aws-cli-create-vpc.sh)
+
+[Useful link to check CIDR Range](http://cidr.xyz) 
